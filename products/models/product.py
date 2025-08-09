@@ -14,7 +14,6 @@ class Product(models.Model):
     category= models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
     cost = models.IntegerField(null=False, blank=False, )
     price= models.IntegerField(null=False, blank=False)
-    # image= models.ImageField(upload_to='products/')
     created_at = models.DateTimeField(auto_now_add=True)
     stock = models.IntegerField(default=0)  # New field for stock
 

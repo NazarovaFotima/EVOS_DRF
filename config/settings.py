@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'products',
+    'billing',
 
     'django_filters',
     'rest_framework',
@@ -187,4 +188,7 @@ DJOSER = {
 }
 
 TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
+
+CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL') # RabbitMQ as a broker
+CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND') # Redis as a result backend
 

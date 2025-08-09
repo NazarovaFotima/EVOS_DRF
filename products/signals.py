@@ -9,7 +9,7 @@ from .models import Order
 @receiver(post_save, sender=Order)
 def notify_admin(sender, instance, created, **kwargs):
     if created:  # Check if a new record is created
-        send_telegram_notification.delay(
+        send_telegram_notification(
             order_id=instance.id,
             product_name=instance.product.title,
             quantity=instance.quantity,

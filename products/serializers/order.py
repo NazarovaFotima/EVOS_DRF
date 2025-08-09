@@ -9,7 +9,7 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ['id', 'products', 'customer', 'quantity', 'created_at', 'total_price', 'phone_number', 'is_paid']
+        fields = ['id', 'product', 'customer', 'quantity', 'created_at', 'total_price', 'phone_number', 'is_paid']
 
     def get_total_price(self, obj):
         return obj.product.price * obj.quantity
@@ -17,7 +17,7 @@ class OrderSerializer(serializers.ModelSerializer):
     def validate_quantity(self, value):
         try:
             # Fetch the products instance from the database
-            product_id = self.initial_data['products']
+            product_id = self.initial_data['product']
             product = Product.objects.get(id=product_id)
 
             # Check the stock
