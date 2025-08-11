@@ -3,7 +3,7 @@ from . import signals
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from .views import ProductViewSet, CategoryViewSet, OrderViewSet, ReviewsViewSet, CustomerViewSet
+from .views import ProductViewSet, CategoryViewSet, OrderViewSet, ReviewsViewSet
 from products.services.product_viewhistory import ProductViewHistoryCreate
 from .services.flash_sale import check_flash_sale, FlashSaleListCreateView
 from .services import admin_replenish_stock
@@ -13,7 +13,7 @@ router.register(r'products', ProductViewSet)
 router.register(r'reviews', ReviewsViewSet)
 router.register(r'categories', CategoryViewSet)
 router.register(r'orders', OrderViewSet)
-router.register(r'Customer', CustomerViewSet)
+
 
 urlpatterns = [
     path('', include(router.urls)),

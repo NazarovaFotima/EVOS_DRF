@@ -12,12 +12,6 @@ class CategoryViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class CustomerViewSet(viewsets.ModelViewSet):
-    queryset = Customer.objects.all()
-    serializer_class = CustomSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
-
 
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()

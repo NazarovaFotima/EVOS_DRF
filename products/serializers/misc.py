@@ -19,14 +19,6 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'description', 'avg_rating', 'category', 'cost', 'price',  'created_at', 'stock']
 
 
-
-class CustomSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Customer
-        fields = '__all__'
-
-
-
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review

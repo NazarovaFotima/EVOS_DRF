@@ -28,3 +28,4 @@ djangorestframework_simplejwt
 celery~=5.5.3
 requests~=2.32.4
 python-dotenv~=1.1.1
+stripe~=12.4.0

@@ -8,20 +8,6 @@ from .product import Product
 
 User = get_user_model()
 
-class Customer(models.Model):
-    first_name = models.CharField(null=False, blank=False, max_length=100)
-    last_name= models.CharField(null=False, blank=False, max_length=100)
-    phone_number= models.CharField(
-        unique=True,
-        max_length=15,
-        verbose_name="Phone Number",
-        help_text="Enter a valid phone number (e.g., +998XXXXXXXXX)"
-    )
-
-    created_at= models.DateTimeField(auto_now_add=True)
-    def __str__(self):
-        return f"{self.first_name} {self.last_name}"
-
 
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
@@ -37,7 +23,7 @@ class Review(models.Model):
         unique_together = ('user', 'product')
 
     def __str__(self):
-        return f"{self.product.name} - {self.rating}"
+        return f"{self.product.title} - {self.rating}"
 
 
 class ProductViewHistory(models.Model):

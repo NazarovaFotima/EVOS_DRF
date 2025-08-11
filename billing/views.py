@@ -1,10 +1,10 @@
 # views.py
 from rest_framework import views, status
 from rest_framework.response import Response
-import stripe
 from django.conf import settings
 from .models import Payment
 from products.models import Order
+import stripe
 from .serializers import PaymentSerializer
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
