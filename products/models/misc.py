@@ -1,11 +1,12 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from rest_framework.exceptions import ValidationError
 
 from .product import Product
 
+User = get_user_model()
 
 class Customer(models.Model):
     first_name = models.CharField(null=False, blank=False, max_length=100)
@@ -23,7 +24,7 @@ class Customer(models.Model):
 
 
 class Review(models.Model):
-    user = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='reviews')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
     content = models.TextField()
     rating = models.PositiveIntegerField(
