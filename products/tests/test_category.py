@@ -17,6 +17,7 @@ class CategoryTests(APITestCase):
         self.client.force_authenticate(user=self.user)
         self.category1 = Category.objects.first()
 
+
     def test_category_list(self):
         url = reverse('category-list')
         response = self.client.get(url)
